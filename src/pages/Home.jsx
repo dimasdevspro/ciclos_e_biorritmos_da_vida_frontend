@@ -160,6 +160,12 @@ export default function Home() {
     <div className="max-w-7xl mx-auto">
       <div className="min-h-screen bg-blue-50 p-4 md:p-8">
         <div className="flex gap-2 mb-4">
+          <h2 className="text-xl font-bold mb-4">
+            Calculadora de Ciclos e Biorritmos
+          </h2>
+          <p className="text-xs mb-4">
+            Insira seu nome e data de nascimento abaixo:
+          </p>
           <div className="flex flex-col md:flex-row gap-2">
             <input
               className="bg-blue-100 border p-2 rounded w-full"
