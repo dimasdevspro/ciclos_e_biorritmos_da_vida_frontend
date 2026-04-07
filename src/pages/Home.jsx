@@ -355,6 +355,7 @@ export default function Home() {
               <p>🔴 Vermelho = negativo</p>
               <p>🟣 Roxo = crítico</p>
               <p>🟡 Amarelo = precaução mínima</p>
+              <p>📱 Visualização no celular, gire na horizontal.</p>
             </div>
           </div>
         )}
