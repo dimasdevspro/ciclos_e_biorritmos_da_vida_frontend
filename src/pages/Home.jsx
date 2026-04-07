@@ -159,9 +159,7 @@ export default function Home() {
   return (
     <div className="max-w-7xl mx-auto">
       <div className="min-h-screen bg-blue-50 p-4 md:p-8">
-        <h2 className="text-xl font-bold mb-2">
-          Calculadora de Ciclos e Biorritmos
-        </h2>
+        <h2 className="text-xl font-bold mb-2">Calculadora</h2>
         <p className="text-sm mb-4">
           Insira seu nome e data de nascimento abaixo:
         </p>
