@@ -201,12 +201,12 @@ export default function Home() {
 
               {/* Cards de Dia/Hora AMORC */}
               <h2 className="font-semibold; text-center">
-                🌍 Dia / ⏰ Hora (AMORC)
+                📅 Dia / ⏰ Hora (AMORC)
               </h2>
               <div className="grid grid-cols-2 gap-4 mt-4">
                 <div className="p-4 bg-blue-200 rounded-xl">
                   <p className="font-semibold">
-                    🌍 Dia: {hoje} ({resultado.diaSemana})
+                    📅 Dia: {hoje} ({resultado.diaSemana})
                   </p>
                   <p>Planeta: {resultado.planetaDia}</p>
                   <p>Nota: {resultado.notaDia}</p>
@@ -222,46 +222,51 @@ export default function Home() {
               </div>
 
               {/* Cards de Astronomia */}
-              <h2 className="font-semibold; text-center; mt-6">
+              <h2 className="font-semibold; text-center;">
                 🔭 Céu atual (Astronomia)
               </h2>
+              <div className="grid grid-cols-2 gap-4 mt-4">
+                {/* Céu */}
+                <div className="p-4 bg-blue-200 rounded-xl shadow">
+                  <p className="font-bold">
+                    {" "}
+                    🌍 Planetas visíveis no Horizonte
+                  </p>
 
-              <div className="mt-6 p-4 bg-blue-100 rounded-xl shadow">
-                <p className="font-bold">Planetas visíveis no Horizonte</p>
+                  {!ceu && <p>Carregando...</p>}
 
-                {!ceu && <p>Carregando...</p>}
+                  {ceu?.visiveis?.length > 0 ? (
+                    ceu.visiveis.map((p, i) => (
+                      <p key={i}>
+                        • {p.nome} — {p.altitude}°
+                      </p>
+                    ))
+                  ) : ceu ? (
+                    <p>Nenhum planeta visível agora</p>
+                  ) : null}
+                </div>
 
-                {ceu?.visiveis?.length > 0 ? (
-                  ceu.visiveis.map((p, i) => (
-                    <p key={i}>
-                      • {p.nome} — {p.altitude}°
-                    </p>
-                  ))
-                ) : ceu ? (
-                  <p>Nenhum planeta visível agora</p>
-                ) : null}
-              </div>
+                {/* Lua */}
+                <div className="mt-4 p-4 bg-blue-100 rounded-xl shadow">
+                  <p className="font-bold">🌙 Lua</p>
 
-              {/* Lua */}
-              <div className="mt-4 p-4 bg-blue-100 rounded-xl shadow">
-                <p className="font-bold">🌙 Lua</p>
-
-                {lua ? (
-                  <>
-                    <p>
-                      <strong>Fase:</strong> {lua.fase}
-                    </p>
-                    <p>
-                      <strong>Iluminação:</strong>{" "}
-                      {(lua.iluminacao * 100).toFixed(0)}%
-                    </p>
-                    <p>
-                      <strong>Idade:</strong> {lua.idade} dias
-                    </p>
-                  </>
-                ) : (
-                  <p>Carregando...</p>
-                )}
+                  {lua ? (
+                    <>
+                      <p>
+                        <strong>Fase:</strong> {lua.fase}
+                      </p>
+                      <p>
+                        <strong>Iluminação:</strong>{" "}
+                        {(lua.iluminacao * 100).toFixed(0)}%
+                      </p>
+                      <p>
+                        <strong>Idade:</strong> {lua.idade} dias
+                      </p>
+                    </>
+                  ) : (
+                    <p>Carregando...</p>
+                  )}
+                </div>
               </div>
             </div>
 
