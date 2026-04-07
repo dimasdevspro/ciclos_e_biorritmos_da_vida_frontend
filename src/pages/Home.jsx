@@ -184,16 +184,19 @@ export default function Home() {
               {loading ? "Calculando..." : "Calcular"}
             </button>
           </div>
-          <div className="flex items-center gap-2 mt-2">
-            <input
-              type="checkbox"
-              checked={aceite}
-              onChange={(e) => setAceite(e.target.checked)}
-            />
-            <label className="text-xs text-gray-600">
-              Li e concordo com a Política de Privacidade
-            </label>
-          </div>
+        </div>
+        <div className="flex items-center gap-2 mt-2">
+          <input
+            type="checkbox"
+            checked={aceite}
+            onChange={(e) => setAceite(e.target.checked)}
+          />
+          <label className="text-xs text-gray-600">
+            Li e concordo com a
+            <a href="/privacidade" className="hover:underline text-blue-500">
+              Política de Privacidade
+            </a>
+          </label>
         </div>
         <p className="text-xs text-gray-500 mt-2">
           Seus dados são utilizados apenas para cálculo e não são armazenados.
