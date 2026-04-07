@@ -82,6 +82,7 @@ export default function Home() {
   const [diasPositivos, setDiasPositivos] = useState([]);
   const [ceu, setCeu] = useState(null);
   const [lua, setLua] = useState(null);
+  const [aceite, setAceite] = useState(false);
 
   const calcular = async () => {
     setLoading(true);
@@ -171,18 +172,32 @@ export default function Home() {
               type="date"
               onChange={(e) => setNascimento(e.target.value)}
             />
+            <div className="flex items-center gap-2 mt-2">
+              <input
+                type="checkbox"
+                checked={aceite}
+                onChange={(e) => setAceite(e.target.checked)}
+              />
+              <label className="text-xs text-gray-600">
+                Li e concordo com a Política de Privacidade
+              </label>
+            </div>
             <button
               onClick={calcular}
-              disabled={loading}
-              className={`px-4 py-2 rounded text-white bg-black ${
-                loading ? "bg-black-200" : "bg-black-400"
+              disabled={!aceite || loading}
+              className={`px-4 py-2 rounded text-white ${
+                !aceite || loading
+                  ? "bg-gray-400 cursor-not-allowed"
+                  : "bg-black hover:bg-gray-800"
               }`}
             >
               {loading ? "Calculando..." : "Calcular"}
             </button>
           </div>
         </div>
-
+        <p className="text-xs text-gray-500 mt-2">
+          Seus dados são utilizados apenas para cálculo e não são armazenados.
+        </p>
         {resultado && grafico.length > 0 && (
           <div className="space-y-4 animate-fade-in">
             {/* Cards de Resultado */}

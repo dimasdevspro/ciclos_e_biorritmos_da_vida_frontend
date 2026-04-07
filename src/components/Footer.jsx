@@ -15,6 +15,12 @@ export default function Footer() {
           </a>{" "}
           © {new Date().getFullYear()}
         </div>
+
+        <p className="mt-2">
+          <a href="/privacidade" className="hover:underline text-blue-500">
+            Política de Privacidade
+          </a>
+        </p>
       </footer>
     </div>
   );
