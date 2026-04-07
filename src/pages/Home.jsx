@@ -193,7 +193,11 @@ export default function Home() {
           />
           <label className="text-xs text-gray-600">
             Li e concordo com a
-            <a href="/privacidade" className="hover:underline text-blue-500">
+            <a
+              href="/privacidade"
+              target="_blank"
+              className="hover:underline text-blue-500"
+            >
               Política de Privacidade
             </a>
           </label>
