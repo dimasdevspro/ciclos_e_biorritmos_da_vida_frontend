@@ -164,12 +164,15 @@ export default function Home() {
             <input
               className="bg-blue-100 border p-2 rounded w-full"
               placeholder="Nome"
+              type="text"
+              value={nome}
               onChange={(e) => setNome(e.target.value)}
             />
             <input
               className="bg-blue-100 border p-2 rounded w-full"
               placeholder="Data de Nascimento"
               type="date"
+              value={nascimento}
               onChange={(e) => setNascimento(e.target.value)}
             />
             <button
