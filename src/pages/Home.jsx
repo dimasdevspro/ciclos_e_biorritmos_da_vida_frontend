@@ -100,7 +100,6 @@ export default function Home() {
       }
 
       const data = await res.json();
-      console.log("Data received:", data);
 
       setResultado(data);
       setGrafico(data?.grafico || []);
@@ -230,21 +229,17 @@ export default function Home() {
               <div className="mt-6 p-4 bg-blue-100 rounded-xl shadow">
                 <p className="font-bold">Planetas visíveis no Horizonte</p>
 
-                {ceu ? (
-                  <>
-                    {ceu.visiveis.length > 0 ? (
-                      ceu.visiveis.map((p, i) => (
-                        <p key={i}>
-                          • {p.nome} — {p.altitude}°
-                        </p>
-                      ))
-                    ) : (
-                      <p>Nenhum planeta visível agora</p>
-                    )}
-                  </>
-                ) : (
-                  <p>Carregando...</p>
-                )}
+                {!ceu && <p>Carregando...</p>}
+
+                {ceu?.visiveis?.length > 0 ? (
+                  ceu.visiveis.map((p, i) => (
+                    <p key={i}>
+                      • {p.nome} — {p.altitude}°
+                    </p>
+                  ))
+                ) : ceu ? (
+                  <p>Nenhum planeta visível agora</p>
+                ) : null}
               </div>
 
               {/* Lua */}
