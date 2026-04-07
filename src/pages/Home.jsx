@@ -200,7 +200,7 @@ export default function Home() {
               </p>
 
               {/* Cards de Dia/Hora AMORC */}
-              <h2 className="font-semibold; text-center">
+              <h2 className="mt-6 font-semibold text-center">
                 📅 Dia / ⏰ Hora (AMORC)
               </h2>
               <div className="grid grid-cols-2 gap-4 mt-4">
@@ -222,7 +222,7 @@ export default function Home() {
               </div>
 
               {/* Cards de Astronomia */}
-              <h2 className="font-semibold; text-center;">
+              <h2 className="mt-6 font-semibold text-center">
                 🔭 Céu atual (Astronomia)
               </h2>
               <div className="grid grid-cols-2 gap-4 mt-4">
@@ -247,7 +247,7 @@ export default function Home() {
                 </div>
 
                 {/* Lua */}
-                <div className="mt-4 p-4 bg-blue-100 rounded-xl shadow">
+                <div className="mt-4 p-4 bg-blue-200 rounded-xl shadow">
                   <p className="font-bold">🌙 Lua</p>
 
                   {lua ? (
@@ -258,9 +258,6 @@ export default function Home() {
                       <p>
                         <strong>Iluminação:</strong>{" "}
                         {(lua.iluminacao * 100).toFixed(0)}%
-                      </p>
-                      <p>
-                        <strong>Idade:</strong> {lua.idade} dias
                       </p>
                     </>
                   ) : (
