@@ -14,13 +14,12 @@ export default function Footer() {
             DevsPro Solution
           </a>{" "}
           © {new Date().getFullYear()}
+          <p className="mt-2">
+            <a href="/privacidade" className="hover:underline text-blue-500">
+              Política de Privacidade
+            </a>
+          </p>
         </div>
-
-        <p className="mt-2">
-          <a href="/privacidade" className="hover:underline text-blue-500">
-            Política de Privacidade
-          </a>
-        </p>
       </footer>
     </div>
   );

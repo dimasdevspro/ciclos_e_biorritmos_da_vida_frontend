@@ -172,16 +172,6 @@ export default function Home() {
               type="date"
               onChange={(e) => setNascimento(e.target.value)}
             />
-            <div className="flex items-center gap-2 mt-2">
-              <input
-                type="checkbox"
-                checked={aceite}
-                onChange={(e) => setAceite(e.target.checked)}
-              />
-              <label className="text-xs text-gray-600">
-                Li e concordo com a Política de Privacidade
-              </label>
-            </div>
             <button
               onClick={calcular}
               disabled={!aceite || loading}
@@ -193,6 +183,16 @@ export default function Home() {
             >
               {loading ? "Calculando..." : "Calcular"}
             </button>
+          </div>
+          <div className="flex items-center gap-2 mt-2">
+            <input
+              type="checkbox"
+              checked={aceite}
+              onChange={(e) => setAceite(e.target.checked)}
+            />
+            <label className="text-xs text-gray-600">
+              Li e concordo com a Política de Privacidade
+            </label>
           </div>
         </div>
         <p className="text-xs text-gray-500 mt-2">
