@@ -86,13 +86,24 @@ export default function Home() {
 
   const calcular = async () => {
     setLoading(true);
+
+    // ✅ VALIDAÇÃO LEVE AQUI
+    if (!nascimento || nascimento.length !== 10) {
+      alert("Digite a data completa (DD/MM/AAAA)");
+      setLoading(false);
+      return;
+    }
+
     try {
       const res = await fetch(
         "https://ciclosebiorritmosdavidabackend.vercel.app/calcular",
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ nascimento, nome }),
+          body: JSON.stringify({
+            nome,
+            nascimento: formatarDataParaISO(nascimento),
+          }),
         },
       );
 
@@ -136,6 +147,11 @@ export default function Home() {
       const dataLua = await resLua.json();
 
       setLua(dataLua);
+
+      const formatarDataParaISO = (dataBR) => {
+        const [dia, mes, ano] = dataBR.split("/");
+        return `${ano}-${mes}-${dia}`;
+      };
     } catch (error) {
       console.error("Erro ao calcular:", error);
       alert(
@@ -173,11 +189,19 @@ export default function Home() {
               onChange={(e) => setNome(e.target.value)}
             />
             <input
-              className="bg-blue-100 border p-2 rounded w-full"
-              placeholder="Data de Nascimento"
-              type="date"
+              type="text"
+              inputMode="numeric"
+              placeholder="DD/MM/AAAA"
+              className="bg-blue-100 border p-2 rounded w-full placeholder-gray-500"
               value={nascimento}
-              onChange={(e) => setNascimento(e.target.value)}
+              onChange={(e) => {
+                let v = e.target.value.replace(/\D/g, ""); // só números
+
+                if (v.length > 2) v = v.slice(0, 2) + "/" + v.slice(2);
+                if (v.length > 5) v = v.slice(0, 5) + "/" + v.slice(5, 9);
+
+                setNascimento(v);
+              }}
             />
             <button
               onClick={calcular}
