@@ -574,12 +574,14 @@ export default function Sobre() {
                 Ordem Rosacruz. Curitiba - PR. 1996.
               </a>
             </li>
-            <p className="mb-4">
-              Obras ao qual a IA tomou referência durante o treinamento do
-              modelo, havendo contato com uma enorme quantidade de textos
-              públicos, resumos acadêmicos, catálogos, análises, artigos,
-              enciclopédias e discussões sobre essas obras:
-            </p>
+          </ul>
+          <p className="mb-4">
+            Obras ao qual a IA tomou referência durante o treinamento do modelo,
+            havendo contato com uma enorme quantidade de textos públicos,
+            resumos acadêmicos, catálogos, análises, artigos, enciclopédias e
+            discussões sobre essas obras:
+          </p>
+          <ul>
             <li>
               <a
                 href="https://old.maa.org/press/maa-reviews/the-exact-sciences-in-antiquity?utm_source=chatgpt.com"
