@@ -320,7 +320,7 @@ export default function Home() {
 
                 {/* Constelação dominante */}
                 <div className="mt-4 p-4 bg-blue-200 rounded-xl shadow">
-                  <p className="font-bold">🌌 Constelação Dominante</p>
+                  <p className="font-bold">🌌 Constelação Dominante - Zênite</p>
                   {ceu?.constelacaoDominante && (
                     <p>
                       <strong>Nome:</strong> {ceu.constelacaoDominante || "N/A"}
